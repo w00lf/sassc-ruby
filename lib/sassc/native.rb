@@ -8,7 +8,7 @@ module SassC
 
     dl_ext = (RbConfig::CONFIG['host_os'] =~ /darwin/ ? 'bundle' : 'so')
     begin
-      ffi_lib File.expand_path("libsass.#{dl_ext}", __dir__)
+      ffi_lib "./libsass.#{dl_ext}"
     rescue LoadError # Some non-rvm environments don't copy a shared object over to lib/sassc
       ffi_lib File.expand_path("libsass.#{dl_ext}", "#{__dir__}/../../ext")
     end
